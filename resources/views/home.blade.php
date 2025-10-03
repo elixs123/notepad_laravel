@@ -430,35 +430,38 @@ document.addEventListener("DOMContentLoaded", function() {
     socket.emit("user:join", { noteId, user: currentUser });
 
     socket.on("users:update", (users) => {
-        const avatarGroup = document.getElementById('avatarGroup');
-        const collaboratorsList = document.getElementById('collaboratorsList');
-        
-        avatarGroup.innerHTML = '';
-        collaboratorsList.innerHTML = '';
+    // Filtriraj duplikate po user.id
+    const uniqueUsers = [...new Map(users.map(u => [u.id, u])).values()];
 
-        users.forEach(user => {
-            const avatar = document.createElement('div');
-            avatar.className = 'avatar-circle';
-            avatar.style.backgroundColor = user.color;
-            avatar.title = user.name;
-            avatar.innerHTML = `<span class="avatar-initial">${user.initial}</span>`;
-            avatarGroup.appendChild(avatar);
+    const avatarGroup = document.getElementById('avatarGroup');
+    const collaboratorsList = document.getElementById('collaboratorsList');
+    
+    avatarGroup.innerHTML = '';
+    collaboratorsList.innerHTML = '';
 
-            const collaborator = document.createElement('div');
-            collaborator.className = 'collaborator-badge';
-            collaborator.innerHTML = `
-                <div class="d-flex align-items-center">
-                    <div class="avatar-circle me-2" style="background-color: ${user.color}">
-                        <span class="avatar-initial">${user.initial}</span>
-                    </div>
-                    <span>${user.name}</span>
+    uniqueUsers.forEach(user => {
+        const avatar = document.createElement('div');
+        avatar.className = 'avatar-circle';
+        avatar.style.backgroundColor = user.color;
+        avatar.title = user.name;
+        avatar.innerHTML = `<span class="avatar-initial">${user.initial}</span>`;
+        avatarGroup.appendChild(avatar);
+
+        const collaborator = document.createElement('div');
+        collaborator.className = 'collaborator-badge';
+        collaborator.innerHTML = `
+            <div class="d-flex align-items-center">
+                <div class="avatar-circle me-2" style="background-color: ${user.color}">
+                    <span class="avatar-initial">${user.initial}</span>
                 </div>
-            `;
-            collaboratorsList.appendChild(collaborator);
-        });
+                <span>${user.name}</span>
+            </div>
+        `;
+        collaboratorsList.appendChild(collaborator);
+    });
 
-        document.getElementById('activeUsersCount').textContent =
-            `${users.length} ${users.length === 1 ? 'person' : 'people'} editing`;
+    document.getElementById('activeUsersCount').textContent =
+            `${uniqueUsers.length} ${uniqueUsers.length === 1 ? 'person' : 'people'} editing`;
     });
 
     // Typing indicator
