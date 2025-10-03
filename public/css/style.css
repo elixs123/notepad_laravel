@@ -1,0 +1,170 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ebeef1;
+}
+.notepad-body #editor {
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+@media (max-width: 576px) {
+    .notepad-logo h4 {
+        font-size: 1rem;
+    }
+    .notepad-head .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+.dark-mode {
+    background-color: rgb(72, 72, 72) !important;
+    color: #fff !important;
+}
+.navbar-brand{
+    color: white !important;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+}
+.nav-link:hover{
+    color: #f1c40f;
+}
+.nav{
+    background: black;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.nav h4{
+    padding-left: 15px;
+    margin: 5px;
+    font-size: 20px;
+}
+.nav-list{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    justify-content: center;
+}
+.nav-list li{
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer
+}
+.nav-list li a{
+    color: white;
+    text-decoration: none;
+}
+.search-form{
+    margin-right: 20px;
+}
+.search-form input{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.search-form button{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: white;
+    color: black;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+.search-form button:hover{
+    background: black;
+    color: white;
+}
+.notepad-container{
+    height: 100vh;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+.notepad-head{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 100%;
+    background-color: #fff;;
+}   
+.notepad-logo{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+}
+.notepad-logo img{
+    width: 40px;
+}
+.notepad-title{
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0;
+    margin-top: 4px;
+    color: #AF01AA;
+}
+.ck-editor__editable {
+    border: none !important;
+    box-shadow: none !important;
+}
+.notepad-footer{
+    font-size: 15px;
+    color: #7e7e7e;
+}
+.notepad-footer p{
+    margin: 0;
+    padding: 0;
+}
+.intro {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #555;
+}
+.changelog-entry {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #fff;
+    border-left: 4px solid #0073e6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+.changelog-entry h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #0073e6;
+}
+.changelog-entry ul {
+    margin: 0;
+    padding-left: 20px;
+}
+.changelog-entry li {
+    margin-bottom: 5px;
+}
+.feature-requests {
+    margin-top: 40px;
+    padding: 15px;
+    background: #fff;
+    border-left: 4px solid #ff9800;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+.feature-requests h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #ff9800;
+}
